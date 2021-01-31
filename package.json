@@ -9,7 +9,11 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "ContentTools": "^1.6.12",
+    "http-server": "^0.12.3",
+    "push-dir": "^0.4.1"
+  },
   "devdependencies": {
     "http-server": "^0.12.3",
     "push-dir": "^0.4.1"

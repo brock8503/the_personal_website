@@ -1,0 +1,11 @@
+{
+  "name": "personal_website",
+  "version": "0.0.0",
+  "description": "Build and manage a simple personal website on github pages",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -11,6 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "ContentTools": "^1.6.12",
+    "feather-icons": "^4.28.0",
+    "github-fork-ribbon-css": "^0.2.3",
     "http-server": "^0.12.3",
     "push-dir": "^0.4.1"
   },

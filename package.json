@@ -15,7 +15,7 @@
     "github-fork-ribbon-css": "^0.2.3",
     "push-dir": "^0.4.1"
   },
-  "devdependencies": {
+  "devDependencies": {
     "http-server": "^0.12.3"
   }
 }

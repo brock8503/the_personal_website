@@ -135,7 +135,7 @@ section {
   padding: 2em 4em 2em 4em;
 }
 
-main::before {
+section.hero-container::before {
   content: "";
   position: absolute;
   height: 34em;
@@ -217,15 +217,11 @@ section.articles span {
   nav {
     height: 14em;
     flex-direction: column;
+    background-color: var(--blue);
   }
 
   nav button {
     display: none;
-  }
-
-  main::before {
-    width: 100%;
-    height: 56em;
   }
 
   section {
@@ -235,6 +231,11 @@ section.articles span {
   section.hero-container {
     flex-direction: column-reverse;
     flex-shrink: 1;
+    background-color: var(--blue);
+  }
+
+  section.hero-container::before {
+    display:none;
   }
 
   section.hero-image {

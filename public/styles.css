@@ -210,7 +210,7 @@ section.articles a {
   text-decoration: inherit;
 }
 
-section.articles span {
+section.articles b {
   color: var(--blue);
   font-weight: 800;
 }

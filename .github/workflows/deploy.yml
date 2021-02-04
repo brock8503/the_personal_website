@@ -12,5 +12,8 @@ jobs:
       - name: Deploy the website to gh-pages
         run: |
           npm install
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "Github Actions"
+          git remote set-url origin https://${{ github.token }}@github.com/${{ github.repository }}.git
           npm run deploy
 

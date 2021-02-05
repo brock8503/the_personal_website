@@ -230,7 +230,7 @@ section.articles b {
   }
 
   section {
-    padding: .5em 1em .5em 1em;
+    padding: 1em 1em 1em 1em;
   }
 
   section.hero-container {
@@ -244,7 +244,7 @@ section.articles b {
   }
 
   section.hero-image {
-    width: 100%;
+    width: calc(100% - 2em);
   }
 
   /* Credit to https://codepen.io/kirstenhumphreys/pen/vgaKmG */

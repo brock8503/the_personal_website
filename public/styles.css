@@ -64,7 +64,7 @@
 }
 
 .github-fork-ribbon::before {
-  background-color: var(--teal);
+  background-color: var(--accent);
 }
 
 .font-bold {
@@ -74,32 +74,18 @@
 }
 
 
-h1 {
-  font-size: 2em;
-  font-weight: 800;
-}
-
 .outline {
   /* TODO refactor parts into border and fonts*/
   border-radius: 4px;
-  border: solid 1px var(--blue);
+  border: solid 1px var(--primary);
 
-  color: var(--blue);
+  color: var(--primary);
 
   font-size: .8em;
   font-family: var(--font-family-sans-serif);
   font-weight: 200;
   font-style: normal;
   background-color: unset;
-}
-
-body {
-  font-size: 16pt;
-  font-family: var(--font-family-sans-serif);
-  font-weight: 200;
-  font-style: normal;
-  padding: 0;
-  margin: 0;
 }
 
 nav, .nav-menu {
@@ -110,9 +96,8 @@ nav, .nav-menu {
   transition: height 0.5s;
 }
 
-nav span {
-  margin-left: 2.4em;
-  padding: 1.4em;
+nav .title {
+  padding: .4em 2em;
 }
 
 nav a {
@@ -143,7 +128,7 @@ section.hero-container::before {
   position: absolute;
   height: 34em;
   width: 70%;
-  background: var(--blue);
+  background: var(--primary);
   top: -6em;
   left: 0;
   z-index: -1;
@@ -171,7 +156,7 @@ section.simple-text {
 .subtitle {
   font-size: .8em;
   font-weight: 800;
-  color: var(--blue);
+  color: var(--primary);
   display: flex;
   align-items: center;
 }
@@ -185,7 +170,7 @@ section.simple-text p {
 }
 
 section.logos {
-  background-color: var(--blue);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,7 +196,7 @@ section.articles a {
 }
 
 section.articles b {
-  color: var(--blue);
+  color: var(--primary);
   font-weight: 800;
 }
 
@@ -225,7 +210,7 @@ section.articles b {
 }
 
 .draggable:active {
-  outline: 4px solid var(--teal);
+  outline: 4px solid var(--accent);
   outline-offset: -4px;
 }
 
@@ -248,7 +233,11 @@ section.articles b {
 @media screen and (max-width: 960px) {
   nav {
     flex-direction: column;
-    background-color: var(--blue);
+    background-color: var(--primary);
+  }
+
+  nav .title {
+    padding: .4em 0 0 3.8em;
   }
 
   nav button {
@@ -262,7 +251,7 @@ section.articles b {
   section.hero-container {
     flex-direction: column-reverse;
     flex-shrink: 1;
-    background-color: var(--blue);
+    background-color: var(--primary);
   }
 
   section.hero-container::before {
@@ -277,6 +266,7 @@ section.articles b {
 
   #toggle:checked ~ .toggle-container .button-toggle {
     box-shadow: 0 0 0 550px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
   }
 
   #toggle:checked ~ .toggle-container .button-toggle:before {
@@ -432,7 +422,7 @@ section.articles b {
     display: inline-block;
     width: 2em;
     height: 2em;
-    margin: 1em;
+    margin: .8em .8em 1em 1em;
     background-color: transparent;
     border: none;
     cursor: pointer;

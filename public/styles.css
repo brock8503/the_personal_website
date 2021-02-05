@@ -134,6 +134,7 @@ main {
 }
 
 section {
+  position: relative;
   padding: 2em 4em 2em 4em;
 }
 
@@ -143,7 +144,7 @@ section.hero-container::before {
   height: 34em;
   width: 70%;
   background: var(--blue);
-  top: 0;
+  top: -6em;
   left: 0;
   z-index: -1;
 }
@@ -216,6 +217,32 @@ section.articles b {
 
 #toggle {
   display: none;
+}
+
+.draggable {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+
+.draggable:active {
+  outline: 4px solid var(--teal);
+  outline-offset: -4px;
+}
+
+.draggable::before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 1em;
+  height: 24px;
+  width: 24px;
+  background-image: url("./node_modules/feather-icons/dist/icons/menu.svg");
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  transform: translate(-50%, -25px);
 }
 
 @media screen and (max-width: 960px) {

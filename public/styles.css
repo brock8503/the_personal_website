@@ -157,10 +157,10 @@ section.hero-container {
 section img {
 }
 
-section.hero-text {
+.hero-text {
 }
 
-section.hero-image {
+.hero-image {
   width: 100%;
 }
 
@@ -230,7 +230,7 @@ section.articles b {
   }
 
   section {
-    padding: 1em 1em 1em 1em;
+    padding: 2em;
   }
 
   section.hero-container {
@@ -241,10 +241,6 @@ section.articles b {
 
   section.hero-container::before {
     display:none;
-  }
-
-  section.hero-image {
-    width: calc(100% - 2em);
   }
 
   /* Credit to https://codepen.io/kirstenhumphreys/pen/vgaKmG */
@@ -326,7 +322,7 @@ section.articles b {
   .nav-menu {
     position: absolute;
     display: inline-block;
-    margin: 1.34em 1.4em .8em;
+    margin: 10em 1.4em .8em;
     pointer-events: none;
     transition: 0.5s;
   }
@@ -339,10 +335,10 @@ section.articles b {
     color: transparent;
     padding: 0;
     letter-spacing: -6.2px;
-    height: 7px;
+    height: 11px;
     line-height: 7px;
     white-space: nowrap;
-    transform: scaleY(0.2);
+    transform: scaleY(0.3);
     transition: 0.1s, opacity 1s;
   }
 
@@ -408,9 +404,9 @@ section.articles b {
   .button-toggle {
     position: absolute;
     display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin: 1.34em;
+    width: 2em;
+    height: 2em;
+    margin: 1em;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -427,7 +423,7 @@ section.articles b {
     content: "";
     top: .5em;
     left: 0;
-    width: 100%;
+    width: 60%;
     height: 2px;
     background-color: white;
     border-radius: 5px;

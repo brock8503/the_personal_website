@@ -322,7 +322,7 @@ section.articles b {
   .nav-menu {
     position: absolute;
     display: inline-block;
-    margin: 10em 1.4em .8em;
+    margin: 1em 1.4em .8em;
     pointer-events: none;
     transition: 0.5s;
   }

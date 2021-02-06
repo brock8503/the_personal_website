@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="./node_modules/github-fork-ribbon-css/gh-fork-ribbon.css">
     <link rel="stylesheet" type="text/css" href="./node_modules/ContentTools/build/content-tools.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="modal.css">
     <link rel="stylesheet" type="text/css" href="blue-template.css">
   </head>
   <body>
@@ -89,9 +90,27 @@
         </ul>
       </section>
     </main>
+
+    <!--https://www.w3schools.com/howto/howto_css_modals.asp-->
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <fieldset class="login">
+          <label for="username">Username:</label>
+          <input type="username" id="username" name="username">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password">
+          <button class="button-login">Login</button>
+          <button class="button-cancel">Cancel</button>
+        </fieldset>
+      </div>
+    </div>
+
     <script src="./node_modules/ContentTools/build/content-tools.min.js"></script>
     <script src="./node_modules/feather-icons/dist/feather.min.js"></script>
     <script src="./node_modules/sortablejs/Sortable.min.js"></script>
-    <script src="editor.js"></script>
+    <script src="editor.js" type="module"></script>
+    <script src="modal.js" type="module"></script>
   </body>
 </html> 

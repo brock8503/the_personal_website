@@ -45,7 +45,7 @@ async function saveToGithub() {
 
         let finalSha = await createCommit(octokit, sha, lastCommitSha)
 
-        updateRef(octokit, response.data.sha)
+        updateRef(octokit, finalSha)
           .then(( response ) => {
             alert("Saved your changes refresh to see them");
           })
@@ -97,7 +97,7 @@ async function createCommit(octokit, treeSha, parent) {
       owner:'brock8503',
       repo: 'the_personal_website',
       tree: treeSha,
-      parent: parent,
+      parents: [ parent ],
       message: `Web commit \n Commit made on ${new Date(Date.now()).toUTCString()}`
     })
       .then(async ( response ) => {
@@ -109,7 +109,7 @@ async function createCommit(octokit, treeSha, parent) {
 
 async function updateRef(octokit, sha) {
   return new Promise((resolve, reject) => {
-    octokit.request(`/repos/brock8503/the_personal_website/git/refs/heads/main`, { sha })
+    octokit.request(`PATCH /repos/brock8503/the_personal_website/git/refs/heads/main`, { data: { sha } })
     .then(( response ) => {
       resolve(response.data)
     })

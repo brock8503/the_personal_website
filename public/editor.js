@@ -9,7 +9,10 @@ window.addEventListener('load', function() {
   editor.init('*[data-editable]', 'data-name');
   editor.addEventListener('start', () => {
     // Simple list
-    sortable = sortable || Sortable.create(home, { /* options */ });
+    sortable = sortable || Sortable.create(home, {
+      handle: '.handle'
+    /* options */ });
+
     sortable.options.sort = true;
     sections.forEach(x => x.classList.toggle('draggable'))
   })

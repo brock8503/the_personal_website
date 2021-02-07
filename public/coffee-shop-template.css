@@ -1,20 +1,18 @@
 :root {
-  --blue: #007bff;
-  --indigo: #0d0cb5;
-  --purple: #7971ea;
-  --pink: #e83e8c;
-  --red: #f23a2e;
-  --orange: #ef6c57;
-  --yellow: #f89d13;
-  --green: #8bc34a;
-  --teal: #46ddb0;
-  --cyan: #17a2b8;
+  --silver-pink: #d2bebdff;
+  --olivine: #9cb380ff;
+  --caput-mortuum: #522a27ff;
+  --vermilion: #c73e1dff;
+  --satin-sheen-gold: #c59849ff;
+  --liver-chestnut: #95705eff;
+  --eerie-black: #242424ff;
+  --cadet-blue: #569d97ff;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #007bff;
+  --primary: #569d97ff;
+  --secondary: #d2bebdff;
   --primary-text: #007bff;
-  --secondary: #6c757d;
   --secondary-text: #6c757d;
   --accent: #46ddb0;
   --success: #8bc34a;
@@ -52,4 +50,27 @@ body {
   font-style: normal;
   padding: 0;
   margin: 0;
+}
+
+section.hero-container::before {
+  background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("./coffee-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 896px 734px;
+  -o-background-size: 896px 734px;
+  -webkit-background-size: 896px 734px;
+}
+
+.hero-image {
+  outline: var(--secondary) 1em solid;
+  outline-offset: -1em;
+}
+
+@media screen and (max-width: 960px) {
+  section.hero-container {
+    background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("./coffee-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 960px 100%;
+    -o-background-size: 960px 100%;
+    -webkit-background-size: 960px 100%;
+  }
 }

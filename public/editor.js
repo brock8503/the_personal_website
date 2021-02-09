@@ -41,6 +41,7 @@ async function mergeChanges () {
   const octokit = new Octokit({auth: document.getElementById("password").value})
   await octokit.request("/user")
     .then(async ( response ) => {
+      modal.style.display = "none"
       let lastCommitSha = await lastCommit(octokit)
       let lastTreeSha = await lastTree(octokit, lastCommitSha)
       let url = new URL(window.location.href)
@@ -68,7 +69,6 @@ async function mergeChanges () {
         .catch(err => alert(err))
     })
     .catch(err => alert(err))
-    .finally(() => { modal.style.display = "none" })
 }
 
 async function lastCommit(octokit) {

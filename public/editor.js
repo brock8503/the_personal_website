@@ -31,6 +31,7 @@ window.addEventListener('load', async function() {
 async function saveToGithub() {
   let button = document.querySelector(".button-login")
   let modal = document.getElementById("myModal")
+  let editor = document.querySelector('.ct-app')
   modal.style.display = "block"
 
   button.addEventListener("click", mergeChanges )
@@ -42,6 +43,8 @@ async function mergeChanges () {
   await octokit.request("/user")
     .then(async ( response ) => {
       modal.style.display = "none"
+      editor.style.display = "none"
+
       let lastCommitSha = await lastCommit(octokit)
       let lastTreeSha = await lastTree(octokit, lastCommitSha)
       let url = new URL(window.location.href)

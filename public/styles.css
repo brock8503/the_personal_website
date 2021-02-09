@@ -73,6 +73,87 @@
   font-style: normal;
 }
 
+a, a:visited {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+a:hover {
+  color: rgba(var(--primary-rgb), 0.5);
+}
+
+section.how-it-works {
+  /*background-color: rgba(0, 0, 0, 0.05);*/
+}
+
+section.how-it-works::before {
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  content: '';
+  background-image: url("./howtopath.svg");
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  opacity: .2;
+}
+
+section.how-it-works ol {
+ list-style: none;
+ counter-reset: item;
+}
+
+section.how-it-works li {
+  color: var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  counter-increment: item;
+  margin: 2em;
+}
+
+section.how-it-works li:nth-child(1) {
+  margin-left: 10%;
+}
+section.how-it-works li:nth-child(2) {
+  margin-left: 0;
+}
+section.how-it-works li:nth-child(3) {
+  margin-left: 20%;
+}
+section.how-it-works li:nth-child(5) {
+  margin-left: 40%;
+}
+section.how-it-works li:nth-child(6) {
+  margin-left: 30%;
+}
+
+section.how-it-works li img {
+  width: 10em;
+  margin: 0 1em 0 1em;
+}
+
+
+section.how-it-works li p {
+  margin: 0 1em 0 1em;
+}
+
+section.how-it-works li:before {
+   margin-right: 10px;
+   content: counter(item);
+   border: var(--primary) solid 4px;
+   border-radius: 100%;
+   text-align: center;
+   display: inline-block;
+
+   font-weight: 500;
+   font-size: .8em;
+
+   padding-top: .4em;
+   width: 1.6em;
+   height: 1.2em;
+}
 
 .outline {
   /* TODO refactor parts into border and fonts*/
@@ -100,10 +181,19 @@ nav .title {
   padding: .4em 2em;
 }
 
-nav a {
-  color: inherit;
-  text-decoration: inherit;
+nav .title a {
+  color: white;
+}
+
+.nav-menu a, .nav-menu a:visited {
+  font-weight: 200;
+  color: white;
+  text-decoration: none;
   padding: 1.4em;
+}
+
+.nav-menu a:hover {
+  color: rgba(255, 255, 255, .6);
 }
 
 nav button {
@@ -120,6 +210,19 @@ nav button:hover {
 
 main {
   color: white;
+}
+
+footer {
+  padding: 2em;
+  color: var(--dark-gray);
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+}
+
+footer a, footer a:visited {
+  color: white;
+  margin: 1em;
 }
 
 section {
@@ -183,6 +286,10 @@ section.logos {
 
 section.logos svg {
   padding: 1em 2em 1em 2em;
+}
+
+section.articles {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 section.articles ul {
@@ -475,5 +582,41 @@ section.articles b {
   }
   .button-toggle::after {
     transform: translateY(50%) rotate(-45deg) scale(0);
+  }
+
+  section.how-it-works::before {
+    background-image: url('./howtopathmobile.svg');
+  }
+
+
+  section.how-it-works ol {
+    padding-left: .8em;
+  }
+
+  section.how-it-works li {
+    flex-direction: column;
+    align-items: start;
+    margin: 0;
+    margin-bottom: 2em;
+  }
+
+  section.how-it-works li::before {
+    margin-bottom: 2em;
+  }
+
+  section.how-it-works li:nth-child(1) {
+    margin-left: 0;
+  }
+  section.how-it-works li:nth-child(2) {
+    margin-left: 0;
+  }
+  section.how-it-works li:nth-child(3) {
+    margin-left: 0;
+  }
+  section.how-it-works li:nth-child(5) {
+    margin-left: 0;
+  }
+  section.how-it-works li:nth-child(6) {
+    margin-left: 0;
   }
 }

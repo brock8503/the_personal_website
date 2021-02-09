@@ -124,7 +124,7 @@ async function createCommit(octokit, treeSha, parent) {
       repo: 'the_personal_website',
       tree: treeSha,
       parents: [ parent ],
-      message: `Web commit \n Commit made on ${new Date(Date.now()).toUTCString()}`
+      message: `Web commit\n\nCommit made on ${new Date(Date.now()).toUTCString()}`
     })
     .then(async ( response ) => {
       resolve(response.data.sha)

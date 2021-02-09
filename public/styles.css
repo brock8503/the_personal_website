@@ -271,6 +271,16 @@ section.articles b {
     display:none;
   }
 
+  main section.hero-container::before,
+  main section.simple-hero::before {
+    height: calc(100% + 14em);
+    top: -14em;
+  }
+
+  section.simple-hero::before {
+    width: 100%;
+  }
+
   /* Credit to https://codepen.io/kirstenhumphreys/pen/vgaKmG */
   /* alternatives https://freefrontend.com/css-mobile-menus/ */
   #toggle {
@@ -311,6 +321,7 @@ section.articles b {
     transform: scaleY(1);
     transition: 0.5s, opacity 0.1s;
   }
+
 
   #toggle:checked ~ nav .nav-menu a:nth-child(1) {
     transition-delay: 0.15s;

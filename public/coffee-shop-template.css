@@ -74,15 +74,14 @@ section.hero-container::before {
     display: inline-block;
     position: absolute;
     content: '';
-    top: -6em;
     left: 0;
     width: 100%;
-    height: calc(100% + 6em);
+    height: calc(100% + 14em);
     background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("./coffee-bg.jpg");
     background-repeat: no-repeat;
-    background-size: 960px calc(100% + 6em);
-    -o-background-size: 960px calc(100% + 6em);
-    -webkit-background-size: 960px calc(100% + 6em);
+    background-size: 960px calc(100% + 14em);
+    -o-background-size: 960px calc(100% + 14em);
+    -webkit-background-size: 960px calc(100% + 14em);
   }
 
   nav {

@@ -31,7 +31,6 @@ window.addEventListener('load', async function() {
 async function saveToGithub() {
   let button = document.querySelector(".button-login")
   let modal = document.getElementById("myModal")
-  let editor = document.querySelector('.ct-app')
   modal.style.display = "block"
 
   button.addEventListener("click", mergeChanges )
@@ -42,6 +41,8 @@ async function mergeChanges () {
   const octokit = new Octokit({auth: document.getElementById("password").value})
   await octokit.request("/user")
     .then(async ( response ) => {
+      let modal = document.getElementById("myModal")
+      let editor = document.querySelector('.ct-app')
       modal.style.display = "none"
       editor.style.display = "none"
 

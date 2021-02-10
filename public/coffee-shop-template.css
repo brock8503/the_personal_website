@@ -63,7 +63,6 @@ section.hero-container::before {
 
 .hero-image {
   outline: var(--secondary) 1em solid;
-  outline-offset: -1em;
 }
 
 @media screen and (max-width: 960px) {

@@ -4,13 +4,12 @@
 [data-editable] iframe,
 [data-editable] image,
 [data-editable] [data-ce-tag=img],
-[data-editable] img,
+/*[data-editable] img,*/
 [data-editable] video {
     clear: both;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    /*max-width: 100%;*/
 }
 
 /* Left align */
@@ -245,15 +244,18 @@ section.hero-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0;
 }
 
 section img {
 }
 
 .hero-text {
+  padding: 2em 1em 2em 4em;
 }
 
 .hero-image {
+  margin-right: 4em;
 }
 
 section.simple-text {
@@ -376,6 +378,15 @@ section.articles b {
 
   section.hero-container::before {
     display:none;
+  }
+
+  .hero-text {
+    padding: 2em;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    margin-right: 0;
   }
 
   main section.hero-container::before,

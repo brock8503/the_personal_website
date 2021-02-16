@@ -56,9 +56,7 @@ body {
 section.hero-container::before {
   background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("./coffee-bg.jpg");
   background-repeat: no-repeat;
-  background-size: 896px 734px;
-  -o-background-size: 896px 734px;
-  -webkit-background-size: 896px 734px;
+  background-size: cover;
 }
 
 .hero-image {
@@ -80,8 +78,6 @@ section.hero-container::before {
     background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("./coffee-bg.jpg");
     background-repeat: no-repeat;
     background-size: 960px calc(100% + 14em);
-    -o-background-size: 960px calc(100% + 14em);
-    -webkit-background-size: 960px calc(100% + 14em);
   }
 
   nav {

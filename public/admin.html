@@ -18,7 +18,7 @@
         const username = document.querySelector("#username").value;
         const octokit = new Octokit({auth: document.getElementById("password").value});
         await octokit.request("/user")
-          .then(response => window.location.href = 'settings.html')
+          .then(response => window.location.href = '/?edit')
           .catch(err => alert(err))
       })
     </script>

@@ -1,0 +1,26 @@
+/* Overrides */
+.ct-app .ct-widget.ct-ignition {
+  position: fixed;
+  left: 16px;
+  bottom: 90px;
+  top: unset;
+}
+
+.ct-ignition__button {
+  box-shadow:
+    0 0.8px 2.2px rgba(0, 0, 0, 0.032),
+    0 2px 5.3px rgba(0, 0, 0, 0.049),
+    0 3.8px 10px rgba(0, 0, 0, 0.06),
+    0 6.7px 17.9px rgba(0, 0, 0, 0.067),
+    0 12.5px 33.4px rgba(0, 0, 0, 0.071),
+    0 30px 80px rgba(0, 0, 0, 0.07)
+  ;
+}
+
+.ce-element--focused {
+  background-color: rgba(243,156,18,.3);
+}
+
+.github-fork-ribbon::before {
+  background-color: var(--accent);
+}

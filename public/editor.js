@@ -1,7 +1,12 @@
 import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"
 import axios from 'https://cdn.skypack.dev/axios'
+import pretty from 'https://cdn.skypack.dev/pretty'
+import Github from './github.js'
 
 window.addEventListener('load', async function() {
+  let params = new URL(location.href).searchParams
+  if(!params.has('edit')) return
+
   let editor = ContentTools.EditorApp.get()
   let home = document.getElementById('home')
   let sections = Array.from(document.getElementsByClassName('list-group-item'))
@@ -9,7 +14,7 @@ window.addEventListener('load', async function() {
 
   editor.init('*[data-editable]', 'data-name')
   editor.addEventListener('start', () => {
-    // Simple list
+    // Allow sorting of sections
     sortable = sortable || Sortable.create(home, {
       handle: '.handle'
     /* options */ })
@@ -33,114 +38,45 @@ async function saveToGithub() {
   let modal = document.getElementById("myModal")
   modal.style.display = "block"
 
-  button.addEventListener("click", mergeChanges )
+  button.addEventListener("click", mergeChanges)
 }
 
-async function mergeChanges () {
+async function mergeChanges() {
+  // Don't save modals to github
+  hideModals()
+
   const username = document.querySelector("#username").value
-  const octokit = new Octokit({auth: document.getElementById("password").value})
-  await octokit.request("/user")
-    .then(async ( response ) => {
-      let modal = document.getElementById("myModal")
-      let editor = document.querySelector('.ct-app')
-      modal.style.display = "none"
-      editor.style.display = "none"
+  const github = await new Github().init({ password: document.getElementById("password").value })
 
-      let lastCommitSha = await lastCommit(octokit)
-      let lastTreeSha = await lastTree(octokit, lastCommitSha)
-      let url = new URL(window.location.href)
-      let newPages = await getNewPages()
-      let template = await getNewPagesTemplate()
-      let files = [
-        ...newPages.map(x => ({ filename: x, content: template })),
-        {
-          filename: `${url.pathname === '/' ? 'index.html': url.pathname}`,
-          content: document.documentElement.innerHTML,
-        }
-      ]
+  const lastCommitSha = await github.lastCommit()
+  const lastTreeSha = await github.lastTree(lastCommitSha)
 
-      let sha = await createTree(octokit,
-        files,
-        lastTreeSha
-      )
+  const url = new URL(window.location.href)
+  const newPages = await getNewPages()
+  const template = await getNewPagesTemplate()
+  const files = [
+    ...newPages.map(x => ({ filename: x, content: pretty(template) })),
+    {
+      filename: `${url.pathname === '/' ? 'index.html': url.pathname}`,
+      content: pretty(document.documentElement.innerHTML),
+    }
+  ]
 
-      let finalSha = await createCommit(octokit, sha, lastCommitSha)
+  const sha = await github.createTree(files, lastTreeSha)
+  const finalSha = await github.createCommit(sha, lastCommitSha)
 
-      updateRef(octokit, finalSha)
-        .then(( response ) => {
-          alert("Saved your changes refresh to see them")
-        })
-        .catch(err => alert(err))
-    })
-    .catch(err => alert(err))
-}
-
-async function lastCommit(octokit) {
-  return new Promise((resolve, reject) => {
-    octokit.request("/repos/brock8503/the_personal_website/git/refs/heads/main")
-      .then(( response ) => {
-        resolve(response.data.object.sha)
-      })
-      .catch(err => alert(err))
-  })
-}
-
-async function lastTree(octokit, sha) {
-  return new Promise((resolve, reject) => {
-    octokit.request(`/repos/brock8503/the_personal_website/git/commits/${sha}`)
-      .then(( response ) => {
-        resolve(response.data.tree.sha)
-      })
-      .catch(err => alert(err))
-  })
-}
-
-async function createTree(octokit, files, lastTree) {
-  return new Promise((resolve, reject) => {
-    octokit.git.createTree({
-      owner:'brock8503',
-      repo: 'the_personal_website',
-      base_tree: lastTree,
-      tree: files.map((x) => {
-        return {
-          path: `public/${x.filename.replace('/', '')}`,
-          mode: '100644',
-          type: 'blob',
-          content: x.content
-        }
-      })
-    })
+  github.updateRef(finalSha)
     .then(( response ) => {
-      resolve(response.data.sha)
+      alert("Saved your changes refresh to see them")
     })
     .catch(err => alert(err))
-  })
 }
 
-async function createCommit(octokit, treeSha, parent) {
-  return new Promise((resolve, reject) => {
-    octokit.git.createCommit({
-      owner:'brock8503',
-      repo: 'the_personal_website',
-      tree: treeSha,
-      parents: [ parent ],
-      message: `Web commit\n\nCommit made on ${new Date(Date.now()).toUTCString()}`
-    })
-    .then(async ( response ) => {
-      resolve(response.data.sha)
-    })
-    .catch(err => alert(err))
-  })
-}
-
-async function updateRef(octokit, sha) {
-  return new Promise((resolve, reject) => {
-    octokit.request(`PATCH /repos/brock8503/the_personal_website/git/refs/heads/main`, { data: { sha } })
-    .then(( response ) => {
-      resolve(response.data)
-    })
-    .catch(err => alert(err))
-  })
+function hideModals() {
+  let modal = document.getElementById("myModal")
+  let editor = document.querySelector('.ct-app')
+  modal.style.display = "none"
+  editor.remove()
 }
 
 function getAllPages() {

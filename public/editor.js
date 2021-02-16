@@ -1,4 +1,3 @@
-import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"
 import axios from 'https://cdn.skypack.dev/axios'
 import pretty from 'https://cdn.skypack.dev/pretty'
 import Github from './github.js'

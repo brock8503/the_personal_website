@@ -1,3 +1,5 @@
+import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"
+
 export default class Github {
   async init({ password = '' } = {}) {
     this.octokit = new Octokit({auth: password})

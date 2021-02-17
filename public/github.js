@@ -3,7 +3,7 @@ import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"
 export default class Github {
   async init({ password = '' } = {}) {
     this.octokit = new Octokit({auth: password})
-    this.user = await octokit.request("/user")
+    this.user = await this.octokit.request("/user")
   }
 
   async lastCommit() {

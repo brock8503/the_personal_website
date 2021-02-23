@@ -1,0 +1,90 @@
+:root {
+  --silver-pink: #d2bebdff;
+  --olivine: #9cb380ff;
+  --caput-mortuum: #522a27ff;
+  --vermilion: #c73e1dff;
+  --satin-sheen-gold: #c59849ff;
+  --liver-chestnut: #95705eff;
+  --eerie-black: #242424ff;
+  --cadet-blue: #569d97ff;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #569d97ff;
+  --primary-rgb: 86, 157, 151;
+  --secondary: #d2bebdff;
+  --primary-text: #007bff;
+  --secondary-text: #6c757d;
+  --accent: #46ddb0;
+  --success: #8bc34a;
+  --info: #17a2b8;
+  --warning: #f89d13;
+  --danger: #f23a2e;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 800;
+}
+
+b {
+  font-weight: 800;
+}
+
+p {
+  line-height: 1.2em;
+}
+
+body {
+  font-size: 16pt;
+  font-family: var(--font-family-sans-serif);
+  font-weight: 200;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+}
+
+section.hero-container::before {
+  background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("../images/coffee-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-image {
+  outline: var(--secondary) 1em solid;
+}
+
+@media screen and (max-width: 960px) {
+  section.hero-container {
+    background-color: unset;
+  }
+
+  section.hero-container::before {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 100%;
+    height: calc(100% + 14em);
+    background-image: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url("../images/coffee-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 960px calc(100% + 14em);
+  }
+
+  nav {
+    background-color: unset;
+  }
+
+  .hero-image {
+    outline: none;
+  }
+}

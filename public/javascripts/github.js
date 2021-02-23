@@ -4,6 +4,7 @@ export default class Github {
   async init({ password = '' } = {}) {
     this.octokit = new Octokit({auth: password})
     this.user = await this.octokit.request("/user")
+    return this
   }
 
   async lastCommit() {

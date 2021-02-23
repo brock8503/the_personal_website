@@ -206,8 +206,12 @@ section img {
   margin-right: 4em;
 }
 
+section.simple-text h1 {
+  color: var(--primary-text);
+}
+
 section.simple-text {
-  color: var(--gray-dark);
+  color: var(--secondary-text);
 }
 
 .subtitle {
@@ -215,15 +219,17 @@ section.simple-text {
   font-weight: 800;
   color: var(--primary);
   display: flex;
-  align-items: center;
 }
 
-.subtitle svg {
-  padding-right: .5em;
-}
-
-section.simple-text p {
-  color: var(--secondary-text);
+.subtitle::before {
+  content: '';
+  mask-image: url("https://cdn.skypack.dev/feather-icons/dist/icons/circle.svg");
+  mask-size: 1em;
+  mask-repeat: no-repeat;
+  background-color: var(--primary);
+  width: 1em;
+  height: 1em;
+  padding-right: .2em;
 }
 
 section.logos {
@@ -346,7 +352,7 @@ section.articles b {
   }
 
   nav .title {
-    padding: .4em 0 0 3.8em;
+    padding: .4em 0 0 0;
   }
 
   nav button {
@@ -426,6 +432,12 @@ section.articles b {
     opacity: 1;
     transform: scaleY(1);
     transition: 0.5s, opacity 0.1s;
+    padding: 1.4em;
+  }
+
+  #toggle:checked ~ nav .nav-menu li {
+    height: 2em;
+    transition: .3s;
   }
 
 
@@ -468,22 +480,38 @@ section.articles b {
   .nav-menu {
     position: absolute;
     display: inline-block;
-    margin: 1em 1.4em .8em;
+    top: 0;
+    left: 0;
+    margin: .8em .8em 1em 1em;
     pointer-events: none;
     transition: 0.5s;
   }
 
-  .nav-menu a {
+  nav, .nav-menu ul {
+    height: 4em;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu li {
     position: relative;
-    display: inline-block;
-    float: left;
-    clear: both;
-    color: transparent;
     padding: 0;
-    letter-spacing: -6.2px;
+    margin: 0;
+    height: .6em;
+    transition: 0.1s;
+  }
+
+  .nav-menu a, .nav-menu a:visited {
+    display: inline-block;
+    color: transparent;
     height: 11px;
     line-height: 7px;
     white-space: nowrap;
+    padding: 0;
+    padding-left: 2em;
     transform: scaleY(0.3);
     transition: 0.1s, opacity 1s;
   }
@@ -493,8 +521,8 @@ section.articles b {
     content: '';
     top: 0;
     left: 0;
-    width: 80%;
-    height: 2px;
+    width: 50%;
+    height: .12em;
     background-color: white;
     transform: translateY(-50%) scaleY(5);
     transition: 0.1s;
@@ -552,7 +580,7 @@ section.articles b {
     display: inline-block;
     width: 2em;
     height: 2em;
-    margin: .8em .8em 1em 1em;
+    margin: 1em 1em 1em .8em;
     background-color: transparent;
     border: none;
     cursor: pointer;

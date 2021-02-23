@@ -11,8 +11,8 @@
   --primary: #8338ecff;
   --primary-rgb: 86, 157, 151;
   --secondary: #ffbe0bff;
-  --primary-text: #ffbe0bff;
-  --secondary-text: #343a40;
+  --primary-text: #343a40;
+  --secondary-text: #6c757d;
   --accent: #46ddb0;
   --success: #8bc34a;
   --info: #17a2b8;
@@ -84,6 +84,6 @@ section.hero-container::before {
   }
 
   .hero-image {
-    outline: none;
+    outline-offset: -.9em;
   }
 }

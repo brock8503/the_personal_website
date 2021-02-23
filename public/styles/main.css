@@ -236,13 +236,19 @@ section.simple-text {
 
 section.logos {
   background-color: var(--primary);
+}
+
+section.logos ul{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
-section.logos svg {
+section.logos li {
   padding: 1em 2em 1em 2em;
 }
 

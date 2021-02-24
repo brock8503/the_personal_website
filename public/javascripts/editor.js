@@ -110,7 +110,16 @@ async function getNewPages() {
 async function getNewPagesTemplate() {
   return new Promise(async (resolve) => {
     let base = new URL(window.location.href)
-    let response = await Axios.get(new URL('template.html', base.origin))
-    resolve(response.data)
+    let template = (await Axios.get(new URL('template.html', base.origin))).data
+    let file = `
+    <html>
+      ${document.head.outerHTML}
+      <body>
+        ${template}
+        ${Array.from(document.scripts).map(x => x.outerHTML).join('\n')}
+      </body>
+    </html>`
+
+    resolve(file)
   })
 }

@@ -29,7 +29,7 @@ window.addEventListener('load', async function() {
   editor.addEventListener('stop', () => {
     sortable.options.sort = false
     sections.forEach(x => x.classList.toggle('draggable'))
-    document.querySelector('.add-section').toggleAttribute('hidden')
+    document.querySelector('.add-section')?.toggleAttribute('hidden')
   })
 
   editor.addEventListener('save', saveToGithub)

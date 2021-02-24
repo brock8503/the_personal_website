@@ -35,6 +35,13 @@ window.addEventListener('load', async function() {
   editor.addEventListener('save', saveToGithub)
 
   Feather.replace()
+
+  // Keep ids up-to-date with pulling for now
+  // so it is easy to navigate around
+  setInterval(() => {
+    Array.from(document.querySelectorAll("section .subtitle"))
+      .map(x => x.closest("section").id = x.innerHTML)
+  }, 500)
 })
 
 async function saveToGithub() {

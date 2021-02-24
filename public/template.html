@@ -1,15 +1,26 @@
-<input id="toggle" type="checkbox">
 <label class="toggle-container" for="toggle">
   <span class="button button-toggle"></span>
 </label>
 <nav>
-  <div data-editable class="title"><p class="font-bold">The Personal Website</p></div>
-  <div class="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="index.html#work">Work</a>
-    <a href="index.html#about">About</a>
+  <div data-editable="" class="title">
+    <p>
+      <a class="font-bold" href="https://thepersonalwebsite.com">The Personal Website</a>
+    </p>
   </div>
-  <button class="outline">Contact</button>
+  <div data-editable="" class="nav-menu">
+    <ul>
+      <li>
+        <a href="#home">Home</a>
+      </li>
+      <li>
+        <a href="#work">Work</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+    </ul>
+  </div>
+  <button class="outline contact" onclick="location.href='mailto:kyle@mcfarland.io';">Contact</button>
 </nav>
 <main id="home" class="list-group">
   <section data-editable class="simple-hero">

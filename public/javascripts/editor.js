@@ -46,6 +46,13 @@ async function init() {
 
   editor.addEventListener('save', saveToGithub)
 
+  ContentTools.StylePalette.add([
+    new ContentTools.Style('Facebook', 'facebook', ['li']),
+    new ContentTools.Style('Twitter', 'twitter', ['li']),
+    new ContentTools.Style('Instagram', 'instagram', ['li']),
+    new ContentTools.Style('Github', 'github', ['li'])
+  ]);
+
   Feather.replace()
 
   // Keep ids up-to-date with pulling for now

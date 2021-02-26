@@ -5,7 +5,15 @@ import Feather from 'https://cdn.skypack.dev/feather-icons'
 import ContentTools from 'https://cdn.skypack.dev/ContentTools'
 import Github from './github.js'
 
-window.addEventListener('load', async function() {
+window.addEventListener('load', init)
+window.addEventListener('reload-editor', init)
+window.addEventListener('start-editor', ContentTools.EditorApp.get().start.bind(ContentTools.EditorApp.get()))
+window.addEventListener('stop-editor', () => {
+  ContentTools.EditorApp.get().revert.bind(ContentTools.EditorApp.get())
+  ContentTools.EditorApp.get().stop.bind(ContentTools.EditorApp.get())
+})
+
+async function init() {
   let params = new URL(location.href).searchParams
   if(!params.has('edit')) return
 
@@ -23,13 +31,17 @@ window.addEventListener('load', async function() {
 
     sortable.options.sort = true
     sections.forEach(x => x.classList.toggle('draggable'))
-    document.querySelector('.add-section')?.toggleAttribute('hidden')
+    let add = document.querySelector('.add-section')
+    if (add) add.style.display = 'block'
   })
 
   editor.addEventListener('stop', () => {
     sortable.options.sort = false
     sections.forEach(x => x.classList.toggle('draggable'))
-    document.querySelector('.add-section')?.toggleAttribute('hidden')
+    let add = document.querySelector('.add-section')
+    if (add) add.style.display = 'none'
+  })
+
   })
 
   editor.addEventListener('save', saveToGithub)
@@ -42,7 +54,7 @@ window.addEventListener('load', async function() {
     Array.from(document.querySelectorAll("section .subtitle"))
       .map(x => x.closest("section").id = x.innerHTML)
   }, 500)
-})
+}
 
 async function saveToGithub() {
   let button = document.querySelector(".button-login")

@@ -179,7 +179,23 @@
       </ul>
     </div>
   </footer>
-  <div class="add-section" hidden=""></div>
+  <div class="add-section" hidden="" onclick="addClicked(this)">
+    <img class="add" src="https://cdn.skypack.dev/feather-icons/dist/icons/plus-circle.svg"/>
+    <ul class="types" style="display:none">
+      <li onclick="document.querySelector('main').appendChild(htmlToElement(SECTIONS.simple));restartEditor();">
+        <img src="./images/simple-text.svg"/>
+        <p><b>Simple section</b></p>
+      </li>
+      <li onclick="document.querySelector('main').appendChild(htmlToElement(SECTIONS.logos));restartEditor()">
+        <img src="./images/logos.svg" style="padding-bottom: calc(150px - 50px)"/>
+        <p><b>Logo section</b></p>
+      </li>
+      <li onclick="document.querySelector('main').appendChild(htmlToElement(SECTIONS.articles));restartEditor()">
+        <img src="./images/articles.svg" style="padding-bottom: calc(150px - 75px)"/>
+        <p><b>Article list section</b></p>
+      </li>
+    </ul>
+  </div>
 
   <!--https://www.w3schools.com/howto/howto_css_modals.asp-->
   <!-- The Modal -->
@@ -199,5 +215,5 @@
 
   <script src="./javascripts/editor.js" type="module"></script>
   <script src="./javascripts/modal.js" type="module"></script>
-
+  <script src="./javascripts/addSection.js"></script>
 </body>

@@ -229,8 +229,11 @@ section.simple-text {
 .subtitle::before {
   content: '';
   mask-image: url("https://cdn.skypack.dev/feather-icons/dist/icons/circle.svg");
+  -webkit-mask-image: url("https://cdn.skypack.dev/feather-icons/dist/icons/circle.svg");
   mask-size: 1em;
+  -webkit-mask-size: 1em;
   mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
   background-color: var(--primary);
   width: 1em;
   height: 1em;

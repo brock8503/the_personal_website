@@ -44,8 +44,6 @@ async function init() {
     if (add) add.style.display = 'none'
   })
 
-  })
-
   editor.addEventListener('save', saveToGithub)
 
   ContentTools.StylePalette.add([

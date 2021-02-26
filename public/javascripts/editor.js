@@ -4,6 +4,7 @@ import Sortablejs from 'https://cdn.skypack.dev/sortablejs'
 import Feather from 'https://cdn.skypack.dev/feather-icons'
 import ContentTools from 'https://cdn.skypack.dev/ContentTools'
 import Github from './github.js'
+import ImageUploader from './imageupload.js'
 
 window.addEventListener('load', init)
 window.addEventListener('reload-editor', init)
@@ -17,6 +18,7 @@ async function init() {
   let params = new URL(location.href).searchParams
   if(!params.has('edit')) return
 
+  ContentTools.IMAGE_UPLOADER = (dialog) => { return new ImageUploader(dialog) }
   let editor = ContentTools.EditorApp.get()
   let home = document.getElementById('home')
   let sections = Array.from(document.getElementsByClassName('list-group-item'))

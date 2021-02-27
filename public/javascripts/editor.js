@@ -46,7 +46,7 @@ async function init() {
     if (add) add.style.display = 'none'
   })
 
-  editor.addEventListener('save', saveToGithub)
+  editor.addEventListener('saved', saveToGithub)
 
   ContentTools.StylePalette.add([
     new ContentTools.Style('Facebook', 'facebook', ['li']),

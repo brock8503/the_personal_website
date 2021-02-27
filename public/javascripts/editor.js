@@ -63,8 +63,14 @@ async function init() {
   // so it is easy to navigate around
   setInterval(() => {
     Array.from(document.querySelectorAll("section .subtitle"))
-      .map(x => x.closest("section").id = x.innerHTML.trim().replace(' ', '-'))
-  }, 500)
+      .map(x => {
+        if (x.closest("section").hasAttribute('hidden')) {
+          x.closest("section").id = ""
+        } else {
+          x.closest("section").id = x.innerHTML.trim().replace(' ', '-')
+        }
+      })
+  }, 1000)
 }
 
 async function saveToGithub() {

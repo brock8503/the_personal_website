@@ -15,12 +15,11 @@ const SECTIONS = {
         <div class="handle"></div>
         <div class="remove" onclick="this.closest('section').toggleAttribute('hidden')"></div>
         <div data-editable="">
-          <ul>
-            <li>
-              <a href="#"><img src="https://cdn.skypack.dev/feather-icons/dist/icons/image.svg" style="filter:invert(); width: 64px; height: 64px;"></a>
-            </li>
-          </ul>
-          </div>
+        <ul>
+          <li class="logo facebook">
+            <a href="#home">facebook</a>
+          </li>
+        </ul>
       </section>
       `,
   articles: `

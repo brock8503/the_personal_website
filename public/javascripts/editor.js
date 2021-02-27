@@ -26,20 +26,22 @@ async function init() {
 
   editor.init('*[data-editable]', 'data-name')
   editor.addEventListener('start', () => {
+    sections = Array.from(document.getElementsByClassName('list-group-item'))
     // Allow sorting of sections
     sortable = sortable || Sortablejs.create(home, {
       handle: '.handle'
     /* options */ })
 
     sortable.options.sort = true
-    sections.forEach(x => x.classList.toggle('draggable'))
+    sections.forEach(x => x.classList.add('draggable'))
     let add = document.querySelector('.add-section')
     if (add) add.style.display = 'block'
   })
 
   editor.addEventListener('stop', () => {
+    sections = Array.from(document.getElementsByClassName('list-group-item'))
     sortable.options.sort = false
-    sections.forEach(x => x.classList.toggle('draggable'))
+    sections.forEach(x => x.classList.remove('draggable'))
     let add = document.querySelector('.add-section')
     if (add) add.style.display = 'none'
   })
@@ -73,7 +75,7 @@ async function saveToGithub() {
 
 async function mergeChanges() {
   // Don't save modals to github
-  hideModals()
+  hideNoneMergableChanges()
 
   const username = document.querySelector("#username").value
   const github = await new Github().init({ password: document.getElementById("password").value })
@@ -102,10 +104,12 @@ async function mergeChanges() {
     .catch(err => alert(err))
 }
 
-function hideModals() {
+function hideNoneMergableChanges() {
   let modal = document.getElementById("myModal")
+  let add = document.querySelector(".add-section")
   let editor = document.querySelector('.ct-app')
   modal.style.display = "none"
+  add.style.display = "none"
   editor.remove()
 }
 

@@ -63,7 +63,7 @@ async function init() {
   // so it is easy to navigate around
   setInterval(() => {
     Array.from(document.querySelectorAll("section .subtitle"))
-      .map(x => x.closest("section").id = x.innerHTML)
+      .map(x => x.closest("section").id = x.innerHTML.trim().replace(' ', '-'))
   }, 500)
 }
 

@@ -47,9 +47,14 @@ function htmlToElement(html) {
   return template.content.firstChild
 }
 
-function addClicked (el) {
-  el.querySelector('img.add').style.display = 'none'
-  el.querySelector('ul.types').style.display = 'flex'
+function toggleAdd (el) {
+  if(el.querySelector('ul.types').style.display == 'flex') {
+    el.querySelector('img.add').style.display = 'block'
+    el.querySelector('ul.types').style.display = 'none'
+  } else {
+    el.querySelector('img.add').style.display = 'none'
+    el.querySelector('ul.types').style.display = 'flex'
+  }
 }
 
 function restartEditor () {

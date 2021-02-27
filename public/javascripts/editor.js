@@ -10,8 +10,8 @@ window.addEventListener('load', init)
 window.addEventListener('reload-editor', init)
 window.addEventListener('start-editor', ContentTools.EditorApp.get().start.bind(ContentTools.EditorApp.get()))
 window.addEventListener('stop-editor', () => {
-  ContentTools.EditorApp.get().revert.bind(ContentTools.EditorApp.get())
-  ContentTools.EditorApp.get().stop.bind(ContentTools.EditorApp.get())
+  ContentTools.EditorApp.get().revert.call(ContentTools.EditorApp.get())
+  ContentTools.EditorApp.get().stop.call(ContentTools.EditorApp.get())
 })
 
 async function init() {

@@ -10,8 +10,10 @@ window.addEventListener('load', init)
 window.addEventListener('reload-editor', init)
 window.addEventListener('start-editor', ContentTools.EditorApp.get().start.bind(ContentTools.EditorApp.get()))
 window.addEventListener('stop-editor', () => {
-  ContentTools.EditorApp.get().revert.call(ContentTools.EditorApp.get())
-  ContentTools.EditorApp.get().stop.call(ContentTools.EditorApp.get())
+  let editor = ContentTools.EditorApp.get()
+  editor.removeEventListener('saved', saveToGithub)
+  editor.stop.call(editor, true)
+  editor.addEventListener('saved', saveToGithub)
 })
 
 async function init() {

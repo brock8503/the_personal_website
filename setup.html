@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <!-- #1 Create github account (link to github signup)-->
+    <!-- #3 Fork this repository-->
+    <!-- #2 Create a PAT (password) for this website-->
+    <!-- #4 (Optional) Create godaddy account (link to signup)-->
+    <!-- #5 (Optional) Buy your custom domain-->
+    <!-- #6 (Optional) Create an API key-->
+    <!-- #6 (Optional) Pick a theme-->
+    <fieldset class="setup">
+      <label for="github-username">Github Username:</label>
+      <input type="username" id="github-username" name="github-username">
+      <label for="github-password">Github Password:</label>
+      <input type="password" id="github-password" name="github-password">
+
+      <label for="godaddy-username">Godaddy Username:</label>
+      <input type="username" id="godaddy-username" name="godaddy-username">
+      <label for="godaddy-password">Godaddy Password:</label>
+      <input type="password" id="godaddy-password" name="godaddy-password">
+
+      <label for="domain">Custom domain</label>
+      <input type="text" id="domain" name="domain">
+
+      <label for="domain">Custom domain</label>
+      <input type="text" id="domain" name="domain">
+
+      <button class="setup">Setup</button>
+      <button class="cancel">Cancel</button>
+    </fieldset>
+    <script type="module">
+      import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+      let button = document.querySelector(".button-login");
+      button.addEventListener("click", async (e) => {
+        const username = document.querySelector("#username").value;
+        const octokit = new Octokit({auth: document.getElementById("password").value});
+        await octokit.request("/user")
+          .then(response => window.location.href = 'settings.html')
+          .catch(err => alert(err))
+      })
+    </script>
+  </body>
+</html>
+

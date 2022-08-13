@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <fieldset class="login">
+      <label for="username">Username:</label>
+      <input type="username" id="username" name="username">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <button class="button-login">Login</button>
+    </fieldset>
+    <script type="module">
+      import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+      let button = document.querySelector(".button-login");
+      button.addEventListener("click", async (e) => {
+        const username = document.querySelector("#username").value;
+        const octokit = new Octokit({auth: document.getElementById("password").value});
+        await octokit.request("/user")
+          .then(response => window.location.href = '/?edit')
+          .catch(err => alert(err))
+      })
+    </script>
+  </body>
+</html>

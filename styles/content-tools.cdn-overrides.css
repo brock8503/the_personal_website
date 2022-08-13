@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'icon';
+    /* TODO figure out why we can use skypack path*/
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/ContentTools/1.6.12/images/icons.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ce-element--drop:before {
+    background-image: url('https://cdn.skypack.dev/ContentTools/build/images/drop-vert-above.svg');
+}
+.ce-element--drop-left:before,
+.ce-element--drop-right:before {
+    background-image: url('https://cdn.skypack.dev/ContentTools/build/images/drop-horz.svg');
+}
+.ce-element--drop.ce-element--type-table-row {
+    background-image: url('https://cdn.skypack.dev/ContentTools/build/images/drop-vert-above.svg');
+}
+.ce-element--drop.ce-element--type-table-row.ce-element--drop-below {
+    background-image: url('https://cdn.skypack.dev/ContentTools/build/images/drop-vert-below.svg');
+}
+
+.ce-element--type-video {
+    background-image: url('https://cdn.skypack.dev/ContentTools/build/images/video.svg');
+}
